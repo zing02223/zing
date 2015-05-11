@@ -18,7 +18,7 @@ app.get('/',function(req,res){
   dao.execute(dao.selectSQL('wf_admin','1','username ASC',10,['userid','username']),[],function(rows,fields){
     res.send(rows);
   })
-})
+});
 /*
  *dao.execute(sql1,[],function(rows,fields){
  *  console.log(rows);
