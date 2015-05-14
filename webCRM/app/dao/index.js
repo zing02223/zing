@@ -6,8 +6,7 @@ var pool = mysql.createPool({
   host : 'localhost',
   user : 'root',
   password : '',
-  //database : 'web_oa',
-  database : 'waysfor',
+  database : 'test',
   port : '3306'
 });
 
