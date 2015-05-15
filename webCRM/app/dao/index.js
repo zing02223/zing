@@ -54,7 +54,6 @@ exports.selectSQL = function(TableName,where,order,limit,fields){
       strSQL += " LIMIT "+limit;
     }
     strSQL +=";";
-    console.log(strSQL);
     return strSQL;
   } else {
     var err = new Error('selectSQL SyntaxError : TableName isn\'t String or  null'.red);
