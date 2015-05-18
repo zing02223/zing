@@ -30,16 +30,9 @@ app.set('view engine','html');
 //设置模版资源路径
 app.set('views',path.join(__dirname,"app/views"));
 
-//引入数据操作模块
-app.dao = require('./app/dao');
-//引入路由规则文件
-var routes = require('./app/lib/router');
-
 //设置静态资源资源路径
 app.use(express.static(path.join(__dirname,"app/statics")));
 app.use(express.static(path.join(__dirname,"app/views")));
-
-//console.log(app.router);
 
 function error(status,msg){
   var err = new Error(msg);
@@ -57,20 +50,11 @@ app.use(session({
            }
 }));
 
-/*
- *app.use(function(req,res,next){
- *  var msgs = req.session.message || [];
- *  res.locals.messages  = msgs;
- *});
- */
-/*
- *app.get('/login',function(req,res){
- *  res.render('login',{test:"test"});
- *});
- *app.get('/query',function(req,res){
- *  res.send(req.query.a);
- *});
- */
+//引入数据操作模块
+app.dao = require('./app/dao');
+//引入路由规则文件
+var routes = require('./app/lib/router');
+routes(app);
 /*
  *app.get('/api',function(req,res,next){
  *  var key = req.query['api-key'];
@@ -85,7 +69,9 @@ app.use(session({
  *});
  */
 
-routes(app);
+app.get('/get',function(req,res){
+  res.render('login',{title:"121",content:'1content1'})
+});
 
 app.use(function(req,res,next){
   res.status(404).render('./err/404',{title:404,content:"The page isn\'t found!"});

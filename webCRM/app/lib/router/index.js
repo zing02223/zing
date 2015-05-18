@@ -16,7 +16,7 @@ module.exports = function(app){
     res.send('/register');
   });
   app.get('/login',function(req,res){
-    res.send('/login');
+    res.render('login',{title:"登录",content:'/login'});
   });
   app.get('/logout',function(req,res){
     res.send('/logout');
