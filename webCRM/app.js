@@ -31,7 +31,7 @@ app.set('view engine','html');
 app.set('views',path.join(__dirname,"app/views"));
 
 //引入数据操作模块
-var dao = require('./app/dao');
+app.dao = require('./app/dao');
 //引入路由规则文件
 var routes = require('./app/lib/router');
 

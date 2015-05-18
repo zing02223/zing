@@ -1,4 +1,5 @@
 module.exports = function(app){
+  var dao = app.dao;
   /*
    *var sql1 = dao.selectSQL('demo','1','username ASC',10,['userid','username']);
    *var sql2 = dao.insertSQL('demo',{"userid":"3","username":"zing"});
