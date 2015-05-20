@@ -16,6 +16,7 @@ var swig = require("swig");
 swig.setDefaults({
   cache : false,
   locals : {
+    title : 'title-test',
     global : {
       siteName : "CRM",
       author : "zing",

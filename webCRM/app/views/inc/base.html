@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>{% block title %}{% endblock %} - {{global.siteName}}</title>
+  <title>{% block title %}{{title}}{% endblock %} - {{global.siteName}}</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
   {% block insert %}{% endblock %}
 </head>
 <body>
