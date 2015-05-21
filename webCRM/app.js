@@ -34,6 +34,7 @@ app.set('views',path.join(__dirname,"app/views"));
 //设置静态资源资源路径
 app.use(express.static(path.join(__dirname,"app/statics")));
 app.use(express.static(path.join(__dirname,"app/views")));
+app.use(express.static(path.join(__dirname,"app/statics/lib/admin-lte")));
 
 function error(status,msg){
   var err = new Error(msg);
@@ -69,10 +70,6 @@ routes(app);
  *  next();
  *});
  */
-
-app.get('/get',function(req,res){
-  res.render('login',{title:"121",content:'1content1'})
-});
 
 app.use(function(req,res,next){
   res.status(404).render('./err/404',{title:404,content:"The page isn\'t found!"});

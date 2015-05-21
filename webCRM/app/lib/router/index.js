@@ -11,14 +11,13 @@ module.exports = function(app){
       res.send(rows);
     });
   });
-  app.get('/register',function(req,res){
-    console.log(req.session);
-    res.send('/register');
-  });
   app.get('/login',function(req,res){
     res.render('login',{title:"登录",content:'/login,shengli'});
   });
+  app.get('/register',function(req,res){
+    res.render('register',{title:"注册",content:'/login,shengli'});
+  });
   app.get('/logout',function(req,res){
-    res.send('/logout');
+    res.render('login',{title:"登录",content:'/login,shengli'});
   });
 }
