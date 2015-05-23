@@ -9,6 +9,18 @@ var app = express();
 //引入path模块
 var path = require('path');
 
+//引入post请求解析参数
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended : false
+}));
+
+//引入md5加密的中间件
+var crypto = require('crypto');
+var md5 = crypto.createHash('md5');
+console.log(md5.update('zing').digest('base64'));
+
 //引入swig模版引擎
 var swig = require("swig");
 
