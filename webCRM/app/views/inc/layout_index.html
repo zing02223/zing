@@ -17,7 +17,14 @@
       {% include "./aside.html" %}
 
       <!-- =============================================== -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+      {% include "./content_header.html" %}
+        <!-- Main content -->
+        <section class="content">
       {% block main %}{% endblock %}
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
       {% include "./footer.html"%}
       {% include "./right_aside.html"%}
 
