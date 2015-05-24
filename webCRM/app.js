@@ -45,7 +45,7 @@ app.set('views',path.join(__dirname,"app/views"));
 
 //设置静态资源资源路径
 app.use(express.static(path.join(__dirname,"app/statics")));
-app.use(express.static(path.join(__dirname,"app/views")));
+//app.use(express.static(path.join(__dirname,"app/views")));
 app.use(express.static(path.join(__dirname,"app/statics/lib/admin-lte")));
 
 function error(status,msg){
@@ -66,9 +66,21 @@ app.use(session({
 
 //引入数据操作模块
 app.dao = require('./app/dao');
-//引入路由规则文件
-var routes = require('./app/lib/router');
-routes(app);
+//遍历路由目录下的所有路由文件
+var fs = require('fs');
+var routerFiles  = fs.readdirSync(path.join(__dirname,'./app/lib/router'));
+
+var rt = null;
+var router = null;
+for (var i = routerFiles.length; i--;) {
+  rt = routerFiles[i];
+  if (path.extname(rt) === '.js') {
+    router = require(path.join(__dirname,'app/lib/router/', rt))(app);
+  }
+}
+
+//var routes = require('./app/lib/router');
+///routes(app);
 /*
  *app.get('/api',function(req,res,next){
  *  var key = req.query['api-key'];
