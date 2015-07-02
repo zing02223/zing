@@ -1,3 +1,4 @@
+var port = process.env.PORT || 3000;
 //引入终端命令行高亮
 require('colors');
 //引入express框架
@@ -112,6 +113,6 @@ app.use(function(err,req,res,next){
   res.render('./err/500',{title:"Error",content:"服务器内部错误，请联系管理员"})
 });
 
-var server = app.listen('3000',function(){
-  console.log(("server is start and port is "+server.address().port).green);
+var server = app.listen(port,function(){
+  console.log(("server is start and port is "+port).green);
 })
