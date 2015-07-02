@@ -1,0 +1,20 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zing02223/zing",
+  "authors": [
+    "zing <zing02223@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "statics/lib",
+    "test",
+    "tests"
+  ]
+}

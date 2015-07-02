@@ -16,6 +16,13 @@ app.use(bodyParser.urlencoded({
   extended : false
 }));
 
+var cookiesParser = require('cookie-parser');
+app.use(cookiesParser());
+
+//var filter = require('./app/lib/filter/authorize')(app);
+var filter = require(path.join(__dirname,"app/lib/filter/authorize.js"));
+app.filter = filter;
+
 //引入md5加密的中间件
 var crypto = require('crypto');
 var md5 = crypto.createHash('md5');
@@ -28,7 +35,7 @@ var swig = require("swig");
 swig.setDefaults({
   cache : false,
   locals : {
-    title : 'title-test',
+    title : '没有加载页面标题',
     global : {
       siteName : "CRM",
       author : "zing",

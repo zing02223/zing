@@ -7,14 +7,16 @@ module.exports = function(app){
    *var sql4 = dao.updateSQL('demo',{"username":"zing","demo":"demotest"},'id = "123"');
    */
   app.get('/',function(req,res){
-    res.redirect('/login');
+    res.send('2');
     /*
+    res.redirect('/login');
      *console.log(req.session);
      *res.send(req.cookies);
      *res.render('index',{});
      */
   });
   app.get('/:controller/:action',function(req,res){
-    res.render(req.params.action,{});
+    res.send('1');
+    //res.render(req.params.action,{});
   });
 }

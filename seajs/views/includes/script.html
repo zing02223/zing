@@ -1,0 +1,45 @@
+<script src="{{baseConfig.libPath}}seajs-3.0.0/dist/sea.js"></script>
+<script>
+  seajs.config({
+    //文件编码
+    charset : 'utf-8',
+
+    //sea.js的基础路径
+    base    : 'http://localhost:1337/',
+    
+    //调试模块
+    debug   : true,
+
+    //预加载项
+    preload : [
+      Function.prototype.bind ? '' : 'es5-safe',
+      this.JSON ? '' : 'json'
+    ],
+    
+    //映射配置
+    map : [
+      ['http://example.com/','http://localhost:1337/']
+    ],
+
+    //变量配置
+    vars    : {
+      'locale' : 'zh-cn'
+    },
+
+    //路径配置
+    paths   : {
+      'lib' : "http://localhost:1337/lib/"
+    },
+
+    //别名配置
+    alias   : {
+      'es5-safe' : 'lib/es5-safe/0.9.3/es5-safe',
+      'json'     : 'lib/json/1.0.2/json',
+      'jquery'   : 'lib/jquery/dist/jquery.js',
+      'bootstrap': 'lib/bootstrap/dist/js/bootstrap.js'
+    }
+  });
+  seajs.use(['bootstrap'],function($){
+    console.log(this);
+  });
+</script>

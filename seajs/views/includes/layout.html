@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{{title}}{% endblock %}</title>
+  <!--加载公共头部信息-->
+  {% include './head.html' %}
+  <!--加载不同页面差异化资源-->
+  {% block statics %}{% endblock %}
+</head>
+<body>
+  {% block header %}{% endblock %}
+  {% block bodyer %}{% endblock %}
+  {% block footer %}{% endblock %}
+  <!--加载公共后加载资源-->
+  {% include './script.html' %}
+  <!--加载不同页面差异化资源-->
+  {% block script %}{% endblock %}
+</body>
+</html>
