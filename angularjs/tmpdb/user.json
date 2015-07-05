@@ -1,0 +1,29 @@
+{
+  "code": "200",
+  "data": [
+    {
+      "uid": "0000001",
+      "username": "zing",
+      "password": "abcdefg"
+    }
+  ],
+  "message": "string",
+  "addUser": {
+    "username": "user1",
+    "password": "pwd1"
+  },
+  "returnUser": {
+    "code": "200",
+    "data": {
+      "username": "user2",
+      "money": "10000.32",
+      "loginTime": "1436067595000",
+      "act": [
+        "login",
+        "buy",
+        "look",
+        "logout"
+      ]
+    }
+  }
+}
