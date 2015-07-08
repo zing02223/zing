@@ -9,7 +9,7 @@
   ],
   "message": "string",
   "addUser": {
-    "username": "user1",
+    "username": "user2",
     "password": "pwd1"
   },
   "returnUser": {
