@@ -1,0 +1,6 @@
+{% extends "./layouts/base.html" %}
+{% block control_body %}
+<input type="text" ng-model="greeting.text"/>
+<br />
+录入内容为: <span ng-bind="greeting.text"></span>
+{% endblock %}

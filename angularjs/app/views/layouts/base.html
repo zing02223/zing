@@ -9,8 +9,8 @@
   {% block insertScript %}{% endblock %}
 </head>
 <body>
-  <div ng-controller="testCtrol">
-    <span>[[test]]</span>
+  <div ng-controller="{% block control_name %}{{name}}{% endblock %}Ctrol">
+    {% block control_body %}{% endblock %}
   </div>
   <script>
   </script> 

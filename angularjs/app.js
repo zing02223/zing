@@ -10,7 +10,10 @@ var path = require("path");
 //引入swig依赖包
 var swig = require('swig');
 swig.setDefaults({
-  cache : false
+  cache : false,
+  locals : {
+    title : "Don\'t found angular\'s controller"
+  }
 });
 
 //引入express依赖包
@@ -28,7 +31,31 @@ app.set('view engine','html');
 app.set('views',path.join(__dirname,"app/views"));
 
 app.get('/',function(req,res){
-  res.render('index',{title:'swig'});
+  res.render('index',{title:'express, swig, requirejs and angularjs \'s demo',name:'demo'});
+});
+
+app.get('/hello',function(req,res){
+  res.render('hello',{title:'Unit 1 : angular for hello',name:'hello'});
+});
+
+app.get('/inputModel',function(req,res){
+  res.render('inputModel',{title:'Unit 2 : angular for input modal',name:'inputModel'});
+});
+
+app.get('/location',function(req,res){
+  res.render('location',{title:'Unit 3 : angular for location',name:'location'});
+});
+
+app.get('/shop',function(req,res){
+  res.render('shop',{title:'Unit 4 : angular for shop',name:'shop'});
+});
+
+app.get('/computeNeeded',function(req,res){
+  res.render('computeNeeded',{title:'Unit 5 : angular for computeNeeded',name:'computeNeeded'});
+});
+
+app.get('/watchNeeded',function(req,res){
+  res.render('watchNeeded',{title:'Unit 6 : angular for watchNeeded',name:'watchNeeded'});
 });
 
 //设置开启端口

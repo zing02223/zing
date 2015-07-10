@@ -1,0 +1,11 @@
+{% extends "./layouts/base.html" %}
+{% block control_body %}
+  <ul ng-repeat="item in items">
+    <li>
+      <span ng-bind="item.title"></span>
+      <input type="text" ng-model="item.quantity" />
+      <span ng-bind="item.price"></span>
+      <button ng-click="remove(index)">remove</button>
+    </li>
+  </ul>
+{% endblock%}

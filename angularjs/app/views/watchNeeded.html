@@ -1,0 +1,5 @@
+{% extends "./layouts/base.html" %}
+{% block control_body %}
+  Starting: <input type="text" ng-change="computeNeeded(index)" ng-model="funding.startingEstimate" />
+  Recommendation: [[funding.needed]]
+{% endblock%}
