@@ -1,0 +1,5 @@
+{% extends "./layouts/base.html" %}
+{% block control_body%}
+<input type="text" ng-change="change2zero()" ng-model="inputValue" />
+<span ng-bind="inputValue"></span>
+{% endblock %}

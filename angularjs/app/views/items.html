@@ -1,0 +1,10 @@
+{% extends "./layouts/base.html" %}
+{% block control_body%}
+<ul>
+  <li ng-repeat="item in items">
+    [[$index+1]][[$first]][[$middle]][[$last]]&nbsp;&nbsp;
+    <a href="[[item.id]]/[[item.age]]">[[item.name]]</a>
+  </li>
+</ul>
+<button ng-click="addItem()">add</button>
+{% endblock %}

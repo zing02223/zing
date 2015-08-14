@@ -49,8 +49,52 @@ define(['angular'],function(angular){
   }).controller('watchNeededCtrol',function($scope){
     $scope.funding = {stratingEstimate: 0};
     $scope.computeNeeded = function(index){
-      $scope.funding.needed = $scope.funding.startingEstimate * 10;
+      $scope.funding.needed = $scope.funding.startingEstimate * 10 || 0;
     }
     $scope.$watch('funding.startingEstimate',$scope.computeNeeded);
+  }).controller('change2zeroCtrol',function($scope){
+    $scope.inputValue = "200";
+    $scope.change2zero = function(){
+      console.log(this);
+    }
+  }).controller('formCtrol',function($scope){
+    $scope.startingEstimate = "0";
+    $scope.computeNeeded = function(){
+      $scope.needed = $scope.startingEstimate * 10 || 0;
+    }
+    $scope.requestFunding = function(){
+      console.log("this is form submit");
+    }
+    $scope.reset = function(){
+      $scope.startingEstimate = 0;
+    }
+    $scope.$watch('startingEstimate',$scope.computeNeeded)
+  }).controller('itemsCtrol',function($scope){
+    $scope.items = [
+      {"id":0,"name":"john","age":50},
+      {"id":1,"name":"tommy","age":31},
+      {"id":2,"name":"sam","age":21}
+    ];
+    $scope.addItem = function(){
+      $scope.items.push({"id":3,"name":"lily","age":18});
+      $scope.items.splice(1,0,{"id":4,"name":"lucy","age":18});
+    }
+  }).controller('discountCtrol',function($scope){
+    $scope.bill = {};
+    $scope.items = [
+      {"id":0,"title":"product1","quantity":0,"price":20},
+      {"id":1,"title":"product2","quantity":0,"price":50},
+      {"id":2,"title":"product3","quantity":0,"price":10}
+    ];
+    $scope.calculateDiscount = function(){
+      var len = $scope.items.length,total = 0;
+      for(len > 0;len--;){
+        total += $scope.items[len].quantity * $scope.items[len].price;
+      }
+      $scope.bill.totalCart = total;
+      $scope.bill.discount = total > 100 ? 10 : 0;
+      $scope.bill.subtotal = total - $scope.bill.discount;
+    }
+    $scope.$watch('items',$scope.calculateDiscount,true);
   });
 });

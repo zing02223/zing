@@ -1,0 +1,32 @@
+{% extends "./layouts/base.html" %}
+{% block control_body%}
+<style type="text/css">
+  table{
+    width:100%;
+  }
+  table td{
+    text-align:center
+  }
+</style>
+  <table>
+    <thead>
+      <tr>
+        <th>产品名</th>
+        <th>产品数量</th>
+        <th>产品价格</th>
+        <th>产品总价</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in items">
+        <td ng-bind="item.title"></td>
+        <td><input type="text" ng-model="item.quantity" /></td>
+        <td ng-bind="item.price | currency"></td>
+        <td ng-bind="item.price * item.quantity | currency"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>总原价 : [[bill.totalCart | currency]]</div>
+  <div>优惠额 : [[bill.discount | currency]]</div>
+  <div>优惠价 : [[bill.subtotal | currency]]</div>
+{% endblock %}

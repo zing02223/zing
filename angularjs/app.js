@@ -58,6 +58,22 @@ app.get('/watchNeeded',function(req,res){
   res.render('watchNeeded',{title:'Unit 6 : angular for watchNeeded',name:'watchNeeded'});
 });
 
+app.get('/change2zero',function(req,res){
+  res.render('change2zero',{title:'demo : if change input\'s value is null.yes it\'s can',name:'change2zero'});
+});
+
+app.get('/form',function(req,res){
+  res.render('form',{title:'Unit7  : angular for ng-form',name:'form'});
+});
+
+app.get('/items',function(req,res){
+  res.render('items',{title:'Unit8  : angular for ng-repeat',name:'items'});
+});
+
+app.get('/discount',function(req,res){
+  res.render('discount',{title:'Unit8  : angular for ng-repeat',name:'discount'});
+});
+
 //设置开启端口
 var server  = app.listen(PORT,function(){
   console.log(("server is start and PORT :"+PORT).green);

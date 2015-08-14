@@ -1,0 +1,9 @@
+{% extends "./layouts/base.html" %}
+{% block control_body%}
+<form ng-submit="requestFunding()">
+  <input type="text" ng-model="startingEstimate" ng-change="computeNeeded()" /><br />
+  Recommendation: [[needed]]<br />
+  <button>fund my startup</button><br />
+  <button ng-click="reset()">reset</button>
+</form>
+{% endblock %}

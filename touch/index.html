@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui" />  
+  <title></title>
+  <script src="js/jquery-1.8.3.js"></script>
+  <style type="text/css">
+    body{
+      margin:0;
+    }
+    #demo{
+      width:200px;
+      height:60px;
+      background:red;
+    }
+  </style>
+</head>
+<body>
+<script type="text/javascript">
+  $(function(){
+    function Game(){
+    }
+    function Canvas2D(){
+    }
+    Game.prototype = {
+      constructor : Game,
+      init : function(){
+        /*获取后台传书的数据*/
+        var res = {"success":true,"data":[{"word":"钱","type":1,"status":0,"user_id":1111,"open_id":"aabbcc","remark":""},{"word":"升","type":1,"status":0,"user_id":1111,"open_id":"adsfjhasdf","remark":""},{"word":"升","type":1,"status":0,"user_id":1111,"open_id":"adsfjhasdf","remark":""}]};
+        console.log(res.data);
+
+        
+        /*生成canvas标签*/    
+        console.log('init');
+      }
+    }
+    var game = new Game();
+    game.init();
+
+
+    /*
+    var act = {};
+    function ent(event){
+      var e = event.changedTouches[0];
+      return e.pageX+" "+e.pageY;
+    }
+    act.down = function(event){
+      console.log("click",ent(event));
+    };
+    act.move = function(event){
+      console.log("move",ent(event));
+    };
+    act.up = function(event){
+      console.log("up",ent(event));
+    };
+    document.getElementById('demo').addEventListener('touchstart',act.down,false);
+    document.getElementById('demo').addEventListener('touchmove',act.move,false);
+    document.getElementById('demo').addEventListener('touchend',act.up,false);
+    */
+  });
+</script>
+</body>
+</html>
