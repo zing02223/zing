@@ -17,22 +17,38 @@
   </style>
 </head>
 <body>
+  <div id="game"></div>
 <script type="text/javascript">
   $(function(){
     function Game(){
     }
-    function Canvas2D(){
-    }
     Game.prototype = {
       constructor : Game,
+      createDom : function(width,height){
+      var width = (width || "300")+"px";
+      var height = (height || "80")+"px";
+      var domStyle = "<style>"
+        +"#game{background:red;position:relative;width:"+width+";height:"+height+";}"
+        +"#game_bg{background:blue;position:absolute;width:"+width+";height:"+height+";left:0;top:0}"
+        +"#game_cover{background:green;position:absolute;width:"+width+";height:"+height+";left:0;top:0}"
+        +"</style>";
+        var dom = domStyle + "<canvas id='game_bg'></canvas><canvas id='game_cover'></canvas>";
+        $("#game").append(dom);
+      },
+      selectBg:function(){
+        $("#game_cover").css("background","yellow");
+        console.log($("game_bg"));
+      },
       init : function(){
         /*获取后台传书的数据*/
         var res = {"success":true,"data":[{"word":"钱","type":1,"status":0,"user_id":1111,"open_id":"aabbcc","remark":""},{"word":"升","type":1,"status":0,"user_id":1111,"open_id":"adsfjhasdf","remark":""},{"word":"升","type":1,"status":0,"user_id":1111,"open_id":"adsfjhasdf","remark":""}]};
         console.log(res.data);
 
-        
-        /*生成canvas标签*/    
+        this.createDom();
+        this.selectBg();
+        /*生成canvas 前景图和背景图标签*/    
         console.log('init');
+
       }
     }
     var game = new Game();
